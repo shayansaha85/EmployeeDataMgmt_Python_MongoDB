@@ -12,8 +12,6 @@ def format_employee(employee):
       return employee
 
 # GET method
-# /api/employee --> all employee details
-# /api/employee?empid=123 --> it will return details for the employee who has empid=123
 
 @app.route('/api/employee', methods = ['GET'])
 def get_employees():
@@ -29,7 +27,6 @@ def get_employees():
       
 
 # POST
-# /api/employee --> [ { empid : 1, name : John, designation : SDE }, { empid : 1, name : John, designation : SDE } ] --> insert the record in the database
 
 @app.route('/api/employee', methods = ['POST'])
 def add_employees():
@@ -41,10 +38,6 @@ def add_employees():
       return jsonify({'message' : 'Employee details inserted'}), 201
 
 # PUT
-# MongoDB --> { empid=101, name=john, designation=SDE } <-- existing data
-# /api/employee?empid=101
-# { designation = QA Analyst } 
-# hit GET --> { empid=101, name=john, designation=QA Analyst }
 
 @app.route('/api/employee', methods = ['PUT'])
 def update_employee():
@@ -60,8 +53,6 @@ def update_employee():
 
 
 # DELETE
-# MongoDB --> { empid=101, name=john, designation=SDE } <-- existing data
-# /api/employee?empid=101 --> it is going to delete john's details
 
 @app.route('/api/employee', methods = ['DELETE'])
 def delete_employee():
